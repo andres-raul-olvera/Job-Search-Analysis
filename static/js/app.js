@@ -51,11 +51,12 @@ const layout = {
 
 Plotly.newPlot("barChart", barChartData, layout, config);
 
-
 // scientificChart
-d3.csv(
-    "http://raw.githubusercontent.com/plotly/datasets/master/finance-chart-apple.csv",
-    function (err, rows) {
+let url = "https://raw.githubusercontent.com/alphatest722/testdata/90f5aab7619d100321626c78b18f735f715c1ac3/finance-charts-apple2.csv";
+let promise = d3.csv(url)
+console.log(promise)
+
+d3.csv(url, function (err, rows) {
         function unpack(rows, key) {
             return rows.map(function (row) {
                 return row[key];
@@ -65,7 +66,7 @@ d3.csv(
         var trace1 = {
             type: "scatter",
             mode: "lines",
-            name: "More Data Here",
+            name: "AAPL High",
             x: unpack(rows, "Date"),
             y: unpack(rows, "AAPL.High"),
             line: { color: "#ea335d" },
@@ -74,7 +75,7 @@ d3.csv(
         var trace2 = {
             type: "scatter",
             mode: "lines",
-            name: "Low Data Here",
+            name: "AAPL Low",
             x: unpack(rows, "Date"),
             y: unpack(rows, "AAPL.Low"),
             line: { color: "#03dcee" },
@@ -105,3 +106,40 @@ d3.csv(
 
         Plotly.newPlot("scientificChart", data, layout, config);
     });
+
+const pieChartData = [
+    {
+        values: [19, 26, 55],
+        labels: ["march", "april", "june"],
+        type: "pie"
+    },
+];
+
+const pieChartLayout = {
+    paper_bgcolor: "#172042",
+    plot_bgcolor: "#172042",
+    piecolorway: ["#ea335d", "#03dcee", "#178add"],
+    showlegend: false,
+    margin: {
+        l: 10,
+        r: 10,
+        b: 10,
+        t: 10,
+        pad: 1,
+    },
+    height: 300,
+    wiedth: 300,
+};
+
+Plotly.newPlot("pieChart", pieChartData, pieChartLayout);
+
+const donutChartData = [
+    {
+        values: [10, 40, 50],
+        labels: ["sep", "oct", "nov"],
+        hole: 0.4,
+        type: "pie",
+    },
+];
+
+Plotly.newPlot("donutChart", donutChartData, pieChartLayout);
