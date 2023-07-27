@@ -9,7 +9,7 @@ menuBtn.addEventListener("click", () => {
 /*charts*/
 const config = { responsive: true};
 
-// use d3 to call api, itterate through the data, select specific element(s) and append data
+// use d3 to call api, itterate through the data, select specific element(s) in our HTML and append data
 d3.json("http://127.0.0.1:5000/api/title_count", function(data) {
     console.log(data);
     console.log( data['count'].length)
