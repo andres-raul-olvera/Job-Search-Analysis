@@ -129,7 +129,7 @@ ul {
 }
 
 .student-name {
-    font-size: 1.2em;
+    font-size: 2.2em;
     text-align: center;
     color: #fff;
 }
@@ -317,7 +317,7 @@ ul {
 
 
 /* sales panel */
-.sales {
+.result_cards {
     grid-column-start: span 3;
     display: grid;
     grid-template-columns: repeat(4,1fr);
@@ -325,28 +325,28 @@ ul {
     margin: 2em 0;
 }
 
-.sales > div {
+.result_cards > div {
     box-shadow:
     0 0 15px rgba(0,0,0,0.5);
     border-radius: 15px;
     padding: 1em;
 }
 
-.sales h1 {
+.result_cards h1 {
     margin: 0.5em 0;
 }
 
-.sales small {
+.result_cards small {
     color: #fff;
 }
 
-.sales > div:nth-child(even) {
+.result_cards > div:nth-child(even) {
     background: linear-gradient(
         0deg, #b52b4b, #ea335d
     );
 }
 
-.sales > div:nth-child(odd) {
+.result_cards > div:nth-child(odd) {
     background: linear-gradient(
         0deg, #178add, #03dcee
     );
@@ -388,6 +388,13 @@ ul {
     );
 }
 
+.student-social-icon {
+    height: 50px;
+    width: 50px;
+    border-radius: 15px;
+    
+}
+
 /* text panel */
 .text {
     padding: 1em;
@@ -398,7 +405,7 @@ ul {
 }
 
 .text-horizontal {
-    grid-column-start: span 2;
+    grid-column-start: span 3;
 }
 
 /* charts */
@@ -408,10 +415,10 @@ ul {
 
 
 @media screen and (max-width: 1150px) {
-    .dashboard, .sales {
+    .dashboard, .result_cards {
         grid-template-columns: 1fr 1fr;
     }
-    #scientificChart, .sales {
+    #scientificChart, .result_cards {
         grid-column-start: span 2;
     }
     .text-horizontal {
@@ -479,7 +486,7 @@ ul {
     }
     
     @media  screen and (max-width: 750px) {
-        .dashboard, .sales {
+        .dashboard, .result_cards {
             grid-column-start: span 1;
         }
     }
