@@ -116,34 +116,38 @@ const config = { responsive: true};
 //     },
 // ];
 
-const pieChartLayout = {
-    paper_bgcolor: "#172042",
-    plot_bgcolor: "#172042",
-    piecolorway: ["#ea335d", "#03dcee", "#178add"],
-    showlegend: false,
-    margin: {
-        l: 10,
-        r: 10,
-        b: 10,
-        t: 10,
-        pad: 1,
-    },
-    height: 300,
-    wiedth: 300,
-};
+// const pieChartLayout = {
+//     paper_bgcolor: "#172042",
+//     plot_bgcolor: "#172042",
+//     piecolorway: ["#ea335d", "#03dcee", "#178add"],
+//     showlegend: false,
+//     margin: {
+//         l: 10,
+//         r: 10,
+//         b: 10,
+//         t: 50,
+//         pad: 1,
+//     },
+//     title: {
+//         text: 'Maximum/Minimum Salary per Position'
 
-// Plotly.newPlot("pieChart", pieChartData, pieChartLayout);
+//     },
+//     height: 300,
+//     wiedth: 300,
+// };
 
-const donutChartData = [
-    {
-        values: [38, 5, 4, 3],
-        labels: ["Business Analyst", "Remote Data Analyst", "Data Analyst","Sr Functional Analyst"],
-        hole: 0.4,
-        type: "pie",
-    },
-];
+// // Plotly.newPlot("pieChart", pieChartData, pieChartLayout);
 
-Plotly.newPlot("donutChart", donutChartData, pieChartLayout);
+// const donutChartData = [
+//     {
+//         values: [38, 5, 4, 3],
+//         labels: ["Business Analyst", "Remote Data Analyst", "Data Analyst","Sr Functional Analyst"],
+//         hole: 0.4,
+//         type: "pie",
+//     },
+// ];
+
+
 
 d3.json("http://127.0.0.1:5000/api/title_count", function(data) {
     console.log(data);
@@ -154,6 +158,42 @@ d3.json("http://127.0.0.1:5000/api/title_count", function(data) {
         _li.append('h4').text(data['title'][x]);
         _li.append('span').text(data['count'][x]);
     }
+
+    const pieChartLayout = {
+        paper_bgcolor: "#172042",
+        plot_bgcolor: "#172042",
+        piecolorway: ["#ea335d", "#03dcee", "#178add"],
+        showlegend: false,
+        margin: {
+            l: 10,
+            r: 10,
+            b: 10,
+            t: 30,
+            pad: 1,
+        },
+        title: {
+            text: 'Maximum/Minimum Salary per Position'
+    
+        },
+        font: {
+            color: "#6b6f8a"
+        },
+        height: 500,
+        wiedth: 500,
+    };
+    
+    // Plotly.newPlot("pieChart", pieChartData, pieChartLayout);
+    
+    const donutChartData = [
+        {
+            values: data['count'],
+            labels: data['title'],
+            hole: 0.4,
+            type: "pie",
+        },
+    ];
+
+    Plotly.newPlot("donutChart", donutChartData, pieChartLayout);
     
 
     // .append('span').text('234234';
@@ -204,6 +244,11 @@ d3.json("http://127.0.0.1:5000/api/title_count", function(data) {
             t: 30,
             pad: 1,
         },
+        title: {
+            text: 'Maximum/Minimum Salary per Position'
+
+        },
+        
         font: {
             color: "#6b6f8a"
         },
@@ -213,3 +258,4 @@ d3.json("http://127.0.0.1:5000/api/title_count", function(data) {
 
     // .append('span').text('234234';
   });
+

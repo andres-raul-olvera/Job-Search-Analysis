@@ -78,5 +78,7 @@ ON t_max.title = t_min.title;
     
     return jsonify({x:df1[x].tolist() for x in df1})
 
+
+
 if __name__ == '__main__':
     app.run(debug=True)
